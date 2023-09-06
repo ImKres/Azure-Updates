@@ -2,13 +2,11 @@ name: Scheduled Azure CLI & PS Checker
 
 on:
   schedule:
-    # Runs at 09:00 UTC every day
-    #- cron:  '0 9 * * *'
-    - cron: '0 8 * * *'
+    # Runs every minute
+    - cron: '* * * * *'
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:  
@@ -31,4 +29,4 @@ jobs:
         pip install schedule
 
     - name: Run Script
-      run: azure_updates.py
+      run: python azure_updates.py  # Make sure to call the python interpreter before the script
