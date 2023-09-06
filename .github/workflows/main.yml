@@ -2,8 +2,8 @@ name: Scheduled Azure CLI & PS Checker
 
 on:
   schedule:
-    # Runs every minute
-    - cron: '* * * * *'
+    # Runs at 00:30 UTC (which is 8:30 AM Philippine Time)
+    - cron: '30 0 * * *'
 
 jobs:
   build:
@@ -30,4 +30,3 @@ jobs:
 
     - name: Run Script
       run: python azure_updates.py || echo "Script failed."
- # Make sure to call the python interpreter before the script
