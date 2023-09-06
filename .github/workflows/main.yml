@@ -29,4 +29,5 @@ jobs:
         pip install schedule
 
     - name: Run Script
-      run: python azure_updates.py  # Make sure to call the python interpreter before the script
+      run: python azure_updates.py || echo "Script failed."
+ # Make sure to call the python interpreter before the script
