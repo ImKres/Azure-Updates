@@ -5,7 +5,7 @@ A Python script that automatically checks for updates in Azure CLI, Azure PowerS
 Fetches the latest release information from GitHub for Azure CLI and Azure PowerShell.
 Checks the last modified time for Microsoft's hosted agent for Ubuntu 20.04.
 Sends a notification message to a Microsoft Teams channel.
-Designed to run daily at 9:00 AM via GitHub Actions.
+Designed to run daily at 8:30 AM via GitHub Actions.
 
 ## How to Use:
 Clone this repository.
