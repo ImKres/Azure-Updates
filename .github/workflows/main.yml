@@ -1,0 +1,32 @@
+name: Scheduled Azure CLI & PS Checker
+
+on:
+  schedule:
+    # Runs at 9 am PH time (1 am UTC) every day
+    - cron: '0 1 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:  
+    - name: Set Teams Webhook Secret
+      run: echo "TEAMS_WEBHOOK=${{ secrets.TEAMS_WEBHOOK }}" >> $GITHUB_ENV
+
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install requests
+        pip install beautifulsoup4
+        pip install pytz
+        pip install schedule
+
+    - name: Run Script
+      run: python azure_updates.py || echo "Script failed."
