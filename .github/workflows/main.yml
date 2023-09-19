@@ -36,3 +36,4 @@ jobs:
 
     - name: Run MHA Notifier Script
       run: python mha_updates.py
+
