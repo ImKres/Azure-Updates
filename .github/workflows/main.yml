@@ -1,6 +1,8 @@
 name: Scheduled Azure CLI & PS Checker
-
 on:
+  push:
+    branches:
+      - main
   schedule:
     # Runs at 9 am PH time (1 am UTC) every day
     - cron: '0 1 * * *'
