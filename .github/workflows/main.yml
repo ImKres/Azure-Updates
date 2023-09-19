@@ -10,8 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:  
-    - name: Set Teams Webhook Secret
-      run: echo "TEAMS_WEBHOOK=${{ secrets.TEAMS_WEBHOOK }}" >> $GITHUB_ENV
+    - name: Set Teams Azure Webhook Secret
+      run: echo "TEAMS_WEBHOOK_AZURE=${{ secrets.TEAMS_WEBHOOK_AZURE }}" >> $GITHUB_ENV
+    
+    - name: Set Teams MHA Webhook Secret
+      run: echo "TEAMS_WEBHOOK_MHA=${{ secrets.TEAMS_WEBHOOK_MHA }}" >> $GITHUB_ENV
 
     - name: Checkout code
       uses: actions/checkout@v2

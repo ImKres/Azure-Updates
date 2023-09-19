@@ -8,7 +8,7 @@ import os
 MHA_URL = "https://github.com/actions/runner-images/commits/main/images/linux/Ubuntu2004-Readme.md"
 
 # Placeholder for Teams Incoming Webhook URL
-TEAMS_WEBHOOK = os.getenv("TEAMS_WEBHOOK")
+TEAMS_WEBHOOK = os.getenv("TEAMS_WEBHOOK_MHA")
 
 def get_latest_commit_time(url):
     response = requests.get(url)

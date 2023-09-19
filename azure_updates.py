@@ -9,7 +9,7 @@ AZURE_CLI_URL = "https://github.com/Azure/azure-cli/releases"
 AZURE_PS_URL = "https://github.com/Azure/azure-powershell/releases"
 
 # Placeholder for Teams Incoming Webhook URL
-TEAMS_WEBHOOK = os.getenv("TEAMS_WEBHOOK")
+TEAMS_WEBHOOK = os.getenv("TEAMS_WEBHOOK_AZURE")
 
 def get_latest_release_time(url):
     response = requests.get(url)
