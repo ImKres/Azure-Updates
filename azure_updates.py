@@ -5,8 +5,8 @@ import pytz  # For timezone conversion
 import os
 
 # URLs for Azure CLI and PowerShell release notes
-AZURE_CLI_URL = "https://github.com/Azure/azure-cli/releases"
-AZURE_PS_URL = "https://github.com/Azure/azure-powershell/releases"
+AZURE_CLI_URL = "https://docs.microsoft.com/en-us/cli/azure/release-notes-azure-cli"
+AZURE_PS_URL = "https://docs.microsoft.com/en-us/powershell/azure/release-notes-azureps?view=azps-10.3.0&viewFallbackFrom=azps-10.0.0"
 
 # Placeholder for Teams Incoming Webhook URL
 TEAMS_WEBHOOK = os.getenv("TEAMS_WEBHOOK_AZURE")
@@ -16,12 +16,19 @@ def get_latest_release_time(url):
     response.raise_for_status()
 
     soup = BeautifulSoup(response.text, 'html.parser')
-    time_tag = soup.find('relative-time')
+    
+    # Find the 'time' HTML element
+    time_tag = soup.find('time')
+
     if time_tag is None:
         raise Exception(f"Failed to find timestamp in {url}")
 
+    # Get the 'datetime' attribute value from the 'time' element
     timestamp_str = time_tag.attrs.get("datetime", "")
+    
+    # Convert the timestamp string to a datetime object
     timestamp = datetime.fromisoformat(timestamp_str.replace("Z", "+00:00"))
+
     return timestamp
 
 def send_teams_notification(message):
