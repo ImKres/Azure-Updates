@@ -28,5 +28,8 @@ jobs:
         pip install pytz
         pip install schedule
 
-    - name: Run Script
-      run: python azure_updates.py || echo "Script failed."
+    - name: Run Azure Notifier Script
+      run: python azure_updates.py 
+
+    - name: Run MHA Notifier Script
+      run: python mha_updates.py
